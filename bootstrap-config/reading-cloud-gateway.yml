@@ -1,5 +1,5 @@
 server:
-  port: 8010
+  port: 8013
 
 spring:
   application:
@@ -64,20 +64,3 @@ spring:
                 redis-rate-limiter.replenishRate: 3
                 redis-rate-limiter.burstCapacity: 5
                 key-resolver: "#{@ipKeyResolver}"
-
-eureka:
-  instance:
-    # 注册服务的IP，而不是逻辑名称
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://localhost:1001/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-
-hystrix:
-  threadpool:
-    default:
-      coreSize: 20 #并发执行的最大线程数，默认10
-      maxQueueSize: 1000 #BlockingQueue的最大队列数，默认值-1
-      queueSizeRejectionThreshold: 400
